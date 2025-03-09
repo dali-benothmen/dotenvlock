@@ -1,0 +1,37 @@
+{
+    "name": "envguard",
+    "version": "0.1.0",
+    "description": "Type-safe environment variable validation for Node.js applications",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "build": "tsup src/index.ts --format cjs,esm --dts",
+        "test": "jest",
+        "lint": "eslint src/**/*.ts"
+    },
+    "keywords": [
+        "environment",
+        "variables",
+        "validation",
+        "typescript",
+        "dotenv",
+        "config"
+    ],
+    "author": "Mohamed Ali Ben Othmen",
+    "license": "MIT",
+    "packageManager": "pnpm@10.6.1",
+    "devDependencies": {
+        "@types/jest": "^29.5.14",
+        "@types/node": "^22.13.10",
+        "@typescript-eslint/eslint-plugin": "^8.26.0",
+        "@typescript-eslint/parser": "^8.26.0",
+        "eslint": "^9.22.0",
+        "jest": "^29.7.0",
+        "ts-jest": "^29.2.6",
+        "tsup": "^8.4.0",
+        "typescript": "^5.8.2"
+    },
+    "dependencies": {
+        "chalk": "^5.4.1"
+    }
+}
