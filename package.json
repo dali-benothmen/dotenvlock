@@ -4,12 +4,21 @@
     "description": "Type-safe environment variable validation for Node.js applications",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
+    "bin": {
+        "envguard": "./bin/envguard.js"
+    },
     "scripts": {
         "envguard": "node ./bin/envguard.js .env",
         "build": "tsup src/index.ts --format cjs,esm --dts",
         "test": "jest",
         "lint": "eslint src/**/*.ts"
     },
+    "files": [
+        "dist",
+        "bin",
+        "README.md",
+        "LICENSE"
+    ],
     "keywords": [
         "environment",
         "variables",
