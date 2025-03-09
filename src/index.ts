@@ -34,4 +34,5 @@ export function checkEnv(
 }
 
 export type { EnvConfig, EnvVarConfig, ValidationResult } from "./types"
+export { cli } from "./cli"
 export default checkEnv
