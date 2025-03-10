@@ -1,5 +1,0 @@
-{
-    "API_KEY": { "type": "string", "required": true },
-    "PORT": { "type": "number", "default": 3000 },
-    "DEBUG_MODE": { "type": "boolean", "required": true }
-}
