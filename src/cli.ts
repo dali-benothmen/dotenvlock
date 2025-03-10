@@ -10,7 +10,7 @@ function displayResults(results: ValidationResult): void {
     }
 
     for (const message of results.messages.info) {
-        console.log(chalk.blue(`ℹ️ ${message}`))
+        console.log(chalk.blue(`ℹ️  ${message}`))
     }
 
     for (const message of results.messages.success) {
@@ -19,6 +19,19 @@ function displayResults(results: ValidationResult): void {
 }
 
 function loadEnvFile(filePath: string): void {
+    try {
+        if (fs.existsSync(filePath)) {
+            loadEnvVariables(filePath)
+            console.log(chalk.green(`✅ Loaded ${filePath}`))
+        } else {
+            console.log(chalk.red(`❌ ${filePath} file not found`))
+        }
+    } catch (error) {
+        console.log(chalk.red(`❌ Error loading .env file`))
+    }
+}
+
+function loadEnvVariables(filePath: string): void {
     try {
         const envContent = fs.readFileSync(filePath, "utf8")
         const envLines = envContent.split("\n")
@@ -34,7 +47,14 @@ function loadEnvFile(filePath: string): void {
                 }
             }
         }
-    } catch (error) {}
+    } catch (error) {
+        console.log(
+            chalk.red(
+                `❌ Error while loading environnement variables from ${filePath}`
+            )
+        )
+        return
+    }
 }
 
 function loadConfig(): EnvConfig {
@@ -50,7 +70,32 @@ function loadConfig(): EnvConfig {
 }
 
 export function cli(): void {
-    const envFilePath = process.argv[2] || path.resolve(process.cwd(), ".env")
+    const envFilePath = process.argv[2]
+
+    if (!envFilePath) {
+        console.log(
+            chalk.red("❌ .env file not provided in package.json script!")
+        )
+        console.log(
+            chalk.yellow(
+                "⚠️  Please ensure your script in package.json is like this:"
+            )
+        )
+        console.log(chalk.cyan('   "envguard": "envguard .env"'))
+
+        return
+    }
+
+    if (!fs.existsSync(envFilePath)) {
+        console.log(chalk.red(`❌ ${envFilePath} file not found`))
+        console.log(
+            chalk.yellow(
+                `⚠️  The script will not continue loading environment variables.`
+            )
+        )
+
+        return
+    }
 
     loadEnvFile(envFilePath)
 

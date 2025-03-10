@@ -8,7 +8,6 @@
         "envguard": "./bin/envguard.js"
     },
     "scripts": {
-        "envguard": "node ./bin/envguard.js .env",
         "lint": "eslint src/**/*.ts",
         "prettier": "prettier --write src/**/*",
         "clean": "rimraf dist/**",

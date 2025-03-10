@@ -15,7 +15,7 @@ export function checkEnv(
     }
 
     for (const message of results.messages.info) {
-        console.log(`ℹ️ ${message}`)
+        console.log(`ℹ️  ${message}`)
     }
 
     if (results.messages.success.length > 0) {
