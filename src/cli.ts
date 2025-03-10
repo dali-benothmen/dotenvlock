@@ -9,10 +9,6 @@ function displayResults(results: ValidationResult): void {
         console.log(chalk.red(`❌ ${message}`))
     }
 
-    for (const message of results.messages.warnings) {
-        console.log(chalk.yellow(`⚠️ ${message}`))
-    }
-
     for (const message of results.messages.info) {
         console.log(chalk.blue(`ℹ️ ${message}`))
     }

@@ -14,10 +14,6 @@ export function checkEnv(
         console.log(`❌ ${message}`)
     }
 
-    for (const message of results.messages.warnings) {
-        console.log(`⚠️ ${message}`)
-    }
-
     for (const message of results.messages.info) {
         console.log(`ℹ️ ${message}`)
     }
