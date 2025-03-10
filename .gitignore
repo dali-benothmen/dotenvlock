@@ -21,4 +21,4 @@ dist/
 # IDE's
 .vscode
 .idea
-envguard.json
+dotenvlock.json

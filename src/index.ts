@@ -8,7 +8,7 @@ export function checkEnv(
 ): Record<string, string | number | boolean> {
     const results = validateEnv(config, env)
 
-    console.log("\nEnvGuard Environment Check:")
+    console.log("DotEnvLock Environment Check:")
 
     for (const message of results.messages.errors) {
         console.log(`❌ ${message}`)

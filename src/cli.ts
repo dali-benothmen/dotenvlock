@@ -59,12 +59,14 @@ function loadEnvVariables(filePath: string): void {
 
 function loadConfig(): EnvConfig {
     try {
-        const configPath = path.resolve(process.cwd(), "envguard.json")
+        const configPath = path.resolve(process.cwd(), "dotenvlock.json")
         const configContent = fs.readFileSync(configPath, "utf8")
 
         return JSON.parse(configContent)
     } catch (error) {
-        console.log(chalk.red("❌ Could not find or parse envguard.json file"))
+        console.log(
+            chalk.red("❌ Could not find or parse dotenvlock.json file")
+        )
         process.exit(1)
     }
 }
@@ -81,7 +83,7 @@ export function cli(): void {
                 "⚠️  Please ensure your script in package.json is like this:"
             )
         )
-        console.log(chalk.cyan('   "envguard": "envguard .env"'))
+        console.log(chalk.cyan('   "dotenvlock": "dotenvlock .env"'))
 
         return
     }

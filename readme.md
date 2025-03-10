@@ -1,4 +1,4 @@
-# EnvGuard
+# DotEnvLock
 
 A tiny but powerful Node.js utility to validate, type-check, and manage environment variables. Catch misconfigurations early and prevent runtime errors in production.
 
@@ -14,18 +14,18 @@ A tiny but powerful Node.js utility to validate, type-check, and manage environm
 ## Installation
 
 ```bash
-npm install envguard
+npm install dotenvlock
 
 # or
 
-yarn add envguard
+yarn add dotenvlock
 ```
 
 ## Basic Usage
 
 ### Step 1: Create a configuration file
 
-Create a file named `envguard.json` in your project root:
+Create a file named `dotenvlock.json` in your project root:
 
 ```json
 {
@@ -37,12 +37,12 @@ Create a file named `envguard.json` in your project root:
 
 ### Step 2: Add the validation script
 
-Add an EnvGuard script to your `package.json`:
+Add an DotEnvLock script to your `package.json`:
 
 ```json
 {
     "scripts": {
-        "envguard": "envguard .env"
+        "dotenvlock": "dotenvlock .env"
     }
 }
 ```
@@ -50,7 +50,7 @@ Add an EnvGuard script to your `package.json`:
 ### Step 3: Run the validation
 
 ```bash
-npm run envguard
+npm run dotenvlock
 ```
 
 You'll see output like:
@@ -68,7 +68,7 @@ or
 ### Step 4: Use in your code
 
 ```typescript
-import { checkEnv } from "envguard"
+import { checkEnv } from "dotenvlock"
 
 // Validates environment variables and returns typed values
 const env = checkEnv({
@@ -121,7 +121,7 @@ const env = checkEnv({
 
 ### Runtime Options
 
-EnvGuard's behavior can be customized at runtime to fit your application's needs:
+DotEnvLock's behavior can be customized at runtime to fit your application's needs:
 
 ```typescript
 // Throw errors immediately on validation failure
@@ -130,9 +130,9 @@ const env = checkEnv(config, process.env, { throwOnError: true })
 
 #### The `throwOnError` Option Explained
 
-By default, EnvGuard logs validation errors to the console but doesn't throw JavaScript exceptions. This means your application will continue running even with invalid configuration, which can be useful during development but risky in production.
+By default, DotEnvLock logs validation errors to the console but doesn't throw JavaScript exceptions. This means your application will continue running even with invalid configuration, which can be useful during development but risky in production.
 
-When you set `throwOnError: true`, EnvGuard will:
+When you set `throwOnError: true`, DotEnvLock will:
 
 1. Validate your environment variables as usual
 2. Log validation errors to the console
@@ -197,7 +197,7 @@ This option gives you fine-grained control over how your application responds to
 
 ## Type Conversion
 
-EnvGuard automatically converts values to the correct type:
+DotEnvLock automatically converts values to the correct type:
 
 -   **string**: Used as-is
 -   **number**: Converted with `Number()` and validated
@@ -211,10 +211,10 @@ When running from the command line:
 
 ```bash
 # Check using default .env file
-npx envguard
+npx dotenvlock
 
 # Check using a specific .env file
-npx envguard .env.production
+npx dotenvlock .env.production
 ```
 
 ## License
