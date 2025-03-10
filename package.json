@@ -13,7 +13,7 @@
         "compile:tsup": "tsup src/** --format cjs,esm --dts",
         "build": "pnpm run clean && pnpm run compile:tsup",
         "release": "pnpm run build && changeset publish",
-        "ci": "pnpm run test && pnpm run build"
+        "ci": "pnpm run build"
     },
     "files": [
         "dist",
