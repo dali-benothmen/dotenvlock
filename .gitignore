@@ -16,9 +16,10 @@ dist/
 .eslintcache
 
 # dotenv environment variables file
-.env
+*.env
 
 # IDE's
 .vscode
 .idea
 dotenvlock.json
+.qodo
