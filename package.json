@@ -1,6 +1,6 @@
 {
     "name": "dotenvlock",
-    "version": "0.1.4",
+    "version": "0.1.5",
     "description": "Type-safe environment variable validation for Node.js applications",
     "main": "dist/index.js",
     "type": "module",
