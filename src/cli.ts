@@ -71,8 +71,15 @@ function loadConfig(): EnvConfig {
     }
 }
 
+function findEnvFile(rootDir: string) {
+    const files = fs.readdirSync(rootDir)
+    return files.find((file) => /^(.*\.env|\.env.*)$/.test(file)) || ".env"
+}
+
 export function cli(): void {
-    const envFilePath = process.argv[2]
+    const envFilePath =
+        process.argv[2] ||
+        path.resolve(process.cwd(), findEnvFile(process.cwd()))
 
     if (!envFilePath) {
         console.log(
