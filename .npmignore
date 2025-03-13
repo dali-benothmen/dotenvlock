@@ -1,5 +1,5 @@
 src
 .changeset
 .github
-package.lock.json
+package-lock.json
 tsconfig.json
