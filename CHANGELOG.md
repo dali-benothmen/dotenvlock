@@ -1,5 +1,11 @@
 # envguard
 
+## 0.1.3
+
+### Patch Changes
+
+- bd25dc8: remove pnpm and add npm instead
+
 ## 0.1.2
 
 ### Patch Changes
