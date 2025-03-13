@@ -4,7 +4,7 @@
 
 ### Patch Changes
 
-- 2891bf1: remove pnpm and add npm instead
+- bd25dc8: remove pnpm and add npm instead
 
 ## 0.1.2
 
